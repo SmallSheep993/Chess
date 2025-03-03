@@ -56,6 +56,7 @@ public class Board {
             squares[i][6] = new Pawn(Piece.Color.BLACK);
         }
     }
+    
 
     private void initializeCastlingRights() {
         castlingRights.put("whiteKingSide", true);
@@ -107,6 +108,7 @@ public class Board {
         Pawn pawn = (Pawn) squares[from[0]][from[1]];
 
         // Pawn promotion check
+        
         if (pawn.canPromote(to[1])) {
             if (promotion.isEmpty()) promotion = "Q"; // default to Queen
             squares[to[0]][to[1]] = createPromotionPiece(promotion, pawn.getColor());
@@ -115,6 +117,15 @@ public class Board {
             switchPlayer();
             return true;
         }
+        /*
+        if (pawn.canPromote(to[1])) {
+            if (promotion.isEmpty()) promotion = "Q"; // default to Queen
+            squares[to[0]][to[1]] = createPromotionPiece(promotion, pawn.getColor());
+            squares[from[0]][from[1]] = null;
+            switchPlayer();
+            return true;
+        }
+        */
 
         // Normal pawn move (including diagonal capture and en passant moves)
         if (!pawn.isValidMove(from[0], from[1], to[0], to[1], this)) {
