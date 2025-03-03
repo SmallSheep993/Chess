@@ -49,7 +49,7 @@ public class Pawn extends Piece {
 
     public boolean canPromote(int endRank) {
         // White promotes at rank index 7 (8th rank), Black at rank index 0 (1st rank)
-        return (color == Color.WHITE && endRank == 7) 
-               || (color == Color.BLACK && endRank == 0);
+        return (color == Color.WHITE && endRank == 7) || (color == Color.BLACK && endRank == 0);
     }
+
 }
